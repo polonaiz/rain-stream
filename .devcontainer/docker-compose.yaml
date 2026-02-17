@@ -6,3 +6,18 @@ services:
     volumes:
       - ../..:/workspaces:cached
     command: sleep infinity
+
+  redis:
+    image: redis:latest
+ 
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: postgres_pass
+      POSTGRES_DB: DEV
+      TZ: Asia/Seoul
+      
+  mongo:
+    image: mongo:latest
+    
