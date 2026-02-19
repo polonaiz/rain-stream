@@ -41,9 +41,8 @@ POST http://localhost:3000/robots/robot-001/status
 Content-Type: application/json
 
 {
-    "robot_id": "robot-001",
     "seq": 23131,
-    "robot_ts": 434242342,
+    "robot_ts": 1771504008435,
     "pos": {"x": 78.5, "y": 32.1},
     "status":"RUNNING"
 }

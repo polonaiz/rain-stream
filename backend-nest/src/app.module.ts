@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RobotsModule } from './robots/robots.module';
+import { RedisModule } from '@songkeys/nestjs-redis';
 
 @Module({
   imports: [
@@ -23,6 +24,16 @@ import { RobotsModule } from './robots/robots.module';
         autoLoadEntities: true,
         synchronize: true, // 개발 환경에서만 사용, 운영 환경에서는 false로 설정
         logging: true,
+      }),
+    }),
+    RedisModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        config: {
+          host: configService.get<string>('REDIS_HOST'),
+          port: configService.get<number>('REDIS_PORT'),
+          password: configService.get<string>('REDIS_PASSWORD')
+        }
       }),
     }),
 
