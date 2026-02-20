@@ -1,4 +1,4 @@
-# rain-arrows
+# heavy-rain
 
 ## 아키텍처
 ### bun + elysiaJS
